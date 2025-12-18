@@ -85,8 +85,8 @@ const Task = () => {
             return;
         }
 
-        const startDate = parseTaskDate(fromDate)
-        const endDate = parseTaskDate(toDate)
+        const startDate = new Date(fromDate)
+        const endDate = new Date(toDate)
        const filterDate = task.filter((tObj)=>{
         const taskDate =  parseTaskDate(tObj.created)
         return (taskDate>= startDate && taskDate<=endDate)});
@@ -108,11 +108,11 @@ const Task = () => {
         <div className="row">
             <div className="col">
                 <label>From Date</label>
-                <input type="text" className="date" value={fromDate} onChange={(e)=>setFromDate(e.target.value)} />
+                <input type="date" className="date" value={fromDate} onChange={(e)=>setFromDate(e.target.value)} />
             </div>
             <div className="col">
                 <label >To Date</label>
-                <input type="text" className="date" value={toDate} onChange={(e)=>setToDate(e.target.value)} />
+                <input type="date" className="date" value={toDate} onChange={(e)=>setToDate(e.target.value)} />
             </div>
         </div>
 
